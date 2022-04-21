@@ -1,0 +1,125 @@
+	digraph dump_graph{
+	rankdir=HR;
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB88F0 [shape = record, label = " <left> LEFT :\n0000000000DB85F0 | <name> STATEMENT | <right> RIGHT :\n0000000000DB18F0"];
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB85F0 [shape = record, label = " <left> LEFT :\n0000000000DB8BC0 | <name> STATEMENT | <right> RIGHT :\n0000000000DB19B0"];
+	INFO0000000000DB88F0: <left> -> INFO0000000000DB85F0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8BC0 [shape = record, label = " <left> LEFT :\n0000000000DB8740 | <name> STATEMENT | <right> RIGHT :\n0000000000DB8C20"];
+	INFO0000000000DB85F0: <left> -> INFO0000000000DB8BC0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8740 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> STATEMENT | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB8BC0: <left> -> INFO0000000000DB8740: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8C20 [shape = record, label = " <left> LEFT :\n0000000000DB8B60 | <name> DEFINE | <right> RIGHT :\n0000000000DB8A70"];
+	INFO0000000000DB8BC0: <right> -> INFO0000000000DB8C20: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8B60 [shape = record, label = " <left> LEFT :\n0000000000DB1AD0 | <name> FUNCTION | <right> RIGHT :\n0000000000DB8BF0"];
+	INFO0000000000DB8C20: <left> -> INFO0000000000DB8B60: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB1AD0 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> fact | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB8B60: <left> -> INFO0000000000DB1AD0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8BF0 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> PARAMETER | <right> RIGHT :\n0000000000DB74A0"];
+	INFO0000000000DB8B60: <right> -> INFO0000000000DB8BF0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB74A0 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> #x | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB8BF0: <right> -> INFO0000000000DB74A0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8A70 [shape = record, label = " <left> LEFT :\n0000000000DB87A0 | <name> STATEMENT | <right> RIGHT :\n0000000000DB74D0"];
+	INFO0000000000DB8C20: <right> -> INFO0000000000DB8A70: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB87A0 [shape = record, label = " <left> LEFT :\n0000000000DB8C50 | <name> STATEMENT | <right> RIGHT :\n0000000000DB7530"];
+	INFO0000000000DB8A70: <left> -> INFO0000000000DB87A0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8C50 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> STATEMENT | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB87A0: <left> -> INFO0000000000DB8C50: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB7530 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> POSHLU | <right> RIGHT :\n0000000000DB76E0"];
+	INFO0000000000DB87A0: <right> -> INFO0000000000DB7530: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB76E0 [shape = record, label = " <left> LEFT :\n0000000000DB76B0 | <name> * | <right> RIGHT :\n0000000000DB8A40"];
+	INFO0000000000DB7530: <right> -> INFO0000000000DB76E0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB76B0 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> #x | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB76E0: <left> -> INFO0000000000DB76B0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8A40 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> CALL | <right> RIGHT :\n0000000000DB8770"];
+	INFO0000000000DB76E0: <right> -> INFO0000000000DB8A40: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8770 [shape = record, label = " <left> LEFT :\n0000000000DB7440 | <name> FUNCTION | <right> RIGHT :\n0000000000DB8530"];
+	INFO0000000000DB8A40: <right> -> INFO0000000000DB8770: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB7440 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> fact | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB8770: <left> -> INFO0000000000DB7440: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8530 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> PARAMETER | <right> RIGHT :\n0000000000DB8B90"];
+	INFO0000000000DB8770: <right> -> INFO0000000000DB8530: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8B90 [shape = record, label = " <left> LEFT :\n0000000000DB8980 | <name> - | <right> RIGHT :\n0000000000DB8650"];
+	INFO0000000000DB8530: <right> -> INFO0000000000DB8B90: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8980 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> #x | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB8B90: <left> -> INFO0000000000DB8980: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8650 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> 1 | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB8B90: <right> -> INFO0000000000DB8650: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB74D0 [shape = record, label = " <left> LEFT :\n0000000000DB86E0 | <name> VTURILAS | <right> RIGHT :\n0000000000DB7470"];
+	INFO0000000000DB8A70: <right> -> INFO0000000000DB74D0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB86E0 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> DECISION | <right> RIGHT :\n0000000000DB8920"];
+	INFO0000000000DB74D0: <left> -> INFO0000000000DB86E0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8920 [shape = record, label = " <left> LEFT :\n0000000000DB8710 | <name> STATEMENT | <right> RIGHT :\n0000000000DB7380"];
+	INFO0000000000DB86E0: <right> -> INFO0000000000DB8920: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8710 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> STATEMENT | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB8920: <left> -> INFO0000000000DB8710: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB7380 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> POSHLU | <right> RIGHT :\n0000000000DB7590"];
+	INFO0000000000DB8920: <right> -> INFO0000000000DB7380: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB7590 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> 1 | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB7380: <right> -> INFO0000000000DB7590: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB7470 [shape = record, label = " <left> LEFT :\n0000000000DB73E0 | <name> == | <right> RIGHT :\n0000000000DB75C0"];
+	INFO0000000000DB74D0: <right> -> INFO0000000000DB7470: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB73E0 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> #x | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB7470: <left> -> INFO0000000000DB73E0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB75C0 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> 0 | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB7470: <right> -> INFO0000000000DB75C0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB19B0 [shape = record, label = " <left> LEFT :\n0000000000DB1980 | <name> = | <right> RIGHT :\n0000000000DB89B0"];
+	INFO0000000000DB85F0: <right> -> INFO0000000000DB19B0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB1980 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> #x | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB19B0: <left> -> INFO0000000000DB1980: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB89B0 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> CALL | <right> RIGHT :\n0000000000DB8830"];
+	INFO0000000000DB19B0: <right> -> INFO0000000000DB89B0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8830 [shape = record, label = " <left> LEFT :\n0000000000DB19E0 | <name> FUNCTION | <right> RIGHT :\n0000000000DB8560"];
+	INFO0000000000DB89B0: <right> -> INFO0000000000DB8830: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB19E0 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> fact | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB8830: <left> -> INFO0000000000DB19E0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB8560 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> PARAMETER | <right> RIGHT :\n0000000000DB1A40"];
+	INFO0000000000DB8830: <right> -> INFO0000000000DB8560: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB1A40 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> #x | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB8560: <right> -> INFO0000000000DB1A40: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB18F0 [shape = record, label = " <left> LEFT :\n0000000000DB18C0 | <name> = | <right> RIGHT :\n0000000000DB1920"];
+	INFO0000000000DB88F0: <right> -> INFO0000000000DB18F0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB18C0 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> #x | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB18F0: <left> -> INFO0000000000DB18C0: <name>
+	node[color = "blue",fontsize=14];
+	INFO0000000000DB1920 [shape = record, label = " <left> LEFT :\n0000000000000000 | <name> 3 | <right> RIGHT :\n0000000000000000"];
+	INFO0000000000DB18F0: <right> -> INFO0000000000DB1920: <name>
+	}

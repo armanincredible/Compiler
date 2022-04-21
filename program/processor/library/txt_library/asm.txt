@@ -1,0 +1,61 @@
+PUSH 0
+POP GX
+IN
+POP [FX + 0]
+PUSH [FX + 0]
+PUSH FX
+PUSH 1
+ADD
+POP FX
+CALL fact
+PUSH 1
+PUSH FX
+SUB
+POP FX
+PUSH JX
+POP [FX + 0]
+PUSH [FX + 0]
+OUT
+HLT
+$ fact :
+POP [FX + 0]
+PUSH 0
+PUSH [FX + 0]
+JE jump_to_call1
+JMP skip_call1
+$ jump_to_call1 :
+CALL CALC_COND
+$ skip_call1 :
+PUSH 0
+PUSH GX
+JNE if1
+JMP skip_if1
+$ if1 :
+PUSH 1
+POP JX
+RET
+$ skip_if1 :
+PUSH 0
+POP GX
+PUSH 1
+PUSH [FX + 0]
+SUB
+PUSH FX
+PUSH 1
+ADD
+POP FX
+CALL fact
+PUSH 1
+PUSH FX
+SUB
+POP FX
+PUSH JX
+PUSH [FX + 0]
+MUL
+POP JX
+RET
+HLT
+$ CALC_COND :
+PUSH 1
+POP GX
+RET
