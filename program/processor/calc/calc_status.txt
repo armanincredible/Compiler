@@ -1,0 +1,692 @@
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 9, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 11, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 8
+IP 12, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 2
+IP 22, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 32, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 34, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 43, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 3
+IP 44, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 46, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 16
+IP 55, REG_VALUE 0, INM_VALUE 93
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 2
+IP 103, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 112, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 122, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 13
+IP 131, REG_VALUE 0, INM_VALUE 140
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 15
+IP 140, REG_VALUE 0, INM_VALUE 149
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 158, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 160, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 14
+IP 169, REG_VALUE 0, INM_VALUE 178
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 15
+IP 178, REG_VALUE 0, INM_VALUE 190
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 199, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 201, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 210, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 220, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 4
+IP 221, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 223, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 232, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 3
+IP 233, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 235, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 16
+IP 244, REG_VALUE 0, INM_VALUE 93
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 2
+IP 103, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 112, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 122, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 13
+IP 131, REG_VALUE 0, INM_VALUE 140
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 15
+IP 140, REG_VALUE 0, INM_VALUE 149
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 158, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 160, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 14
+IP 169, REG_VALUE 0, INM_VALUE 178
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 15
+IP 178, REG_VALUE 0, INM_VALUE 190
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 199, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 201, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 210, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 220, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 4
+IP 221, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 223, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 232, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 3
+IP 233, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 235, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 16
+IP 244, REG_VALUE 0, INM_VALUE 93
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 2
+IP 103, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 112, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 122, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 13
+IP 131, REG_VALUE 0, INM_VALUE 140
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 15
+IP 140, REG_VALUE 0, INM_VALUE 149
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 158, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 160, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 14
+IP 169, REG_VALUE 0, INM_VALUE 178
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 15
+IP 178, REG_VALUE 0, INM_VALUE 190
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 199, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 201, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 210, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 220, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 4
+IP 221, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 223, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 232, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 3
+IP 233, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 235, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 16
+IP 244, REG_VALUE 0, INM_VALUE 93
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 2
+IP 103, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 112, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 122, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 13
+IP 131, REG_VALUE 0, INM_VALUE 140
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 15
+IP 140, REG_VALUE 0, INM_VALUE 149
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 158, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 160, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 14
+IP 169, REG_VALUE 0, INM_VALUE 178
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 15
+IP 178, REG_VALUE 0, INM_VALUE 190
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 199, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 201, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 210, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 220, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 4
+IP 221, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 223, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 232, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 3
+IP 233, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 235, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 16
+IP 244, REG_VALUE 0, INM_VALUE 93
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 2
+IP 103, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 112, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 122, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 13
+IP 131, REG_VALUE 0, INM_VALUE 140
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 15
+IP 140, REG_VALUE 0, INM_VALUE 149
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 158, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 160, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 14
+IP 169, REG_VALUE 0, INM_VALUE 178
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 15
+IP 178, REG_VALUE 0, INM_VALUE 190
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 199, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 201, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 210, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 220, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 4
+IP 221, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 223, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 232, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 3
+IP 233, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 235, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 16
+IP 244, REG_VALUE 0, INM_VALUE 93
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 2
+IP 103, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 112, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 122, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 13
+IP 131, REG_VALUE 0, INM_VALUE 140
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 16
+IP 149, REG_VALUE 0, INM_VALUE 275
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 284, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 286, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 17
+IP 287, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 158, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 160, REG_VALUE 6, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 14
+IP 169, REG_VALUE 0, INM_VALUE 178
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 187, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 189, REG_VALUE 9, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 17
+IP 190, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 253, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 255, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 4
+IP 256, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 258, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 260, REG_VALUE 9, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 270, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 5
+IP 271, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 273, REG_VALUE 9, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 17
+IP 274, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 253, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 255, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 4
+IP 256, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 258, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 260, REG_VALUE 9, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 270, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 5
+IP 271, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 273, REG_VALUE 9, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 17
+IP 274, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 253, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 255, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 4
+IP 256, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 258, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 260, REG_VALUE 9, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 270, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 5
+IP 271, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 273, REG_VALUE 9, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 17
+IP 274, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 253, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 255, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 4
+IP 256, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 258, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 260, REG_VALUE 9, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 270, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 5
+IP 271, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 273, REG_VALUE 9, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 17
+IP 274, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 253, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 255, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 4
+IP 256, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 258, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 260, REG_VALUE 9, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 270, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 5
+IP 271, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 273, REG_VALUE 9, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 17
+IP 274, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 1, cmd = 1
+IP 64, REG_VALUE 0, INM_VALUE 1
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 66, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 4
+IP 67, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 2
+IP 69, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 1, inm_status 0, cmd = 1
+IP 71, REG_VALUE 9, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 2
+IP 81, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 1, reg_status = 1, inm_status 1, cmd = 1
+IP 91, REG_VALUE 5, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 7
+IP 92, REG_VALUE 0, INM_VALUE 0
+
+
+ram_status = 0, reg_status = 0, inm_status 0, cmd = 0
+IP 93, REG_VALUE 0, INM_VALUE 0
+
+

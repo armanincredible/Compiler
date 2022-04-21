@@ -1,0 +1,10 @@
+#x = 3;
+#x = fact (#x);
+fact (#x)
+DORA
+    VTURILAS (#x == 0)
+    DORA
+        POSHLU 1;
+    DURA
+    POSHLU #x * fact (#x - 1);
+DURA;$
