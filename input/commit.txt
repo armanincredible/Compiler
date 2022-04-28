@@ -1,0 +1,14 @@
+    #val = (#b * 1000)/(2 * #a);
+    VTURILAS (#val > 0)
+    DORA
+        POSHLU #val;
+    DURA
+    POSHLU 0 - #val;
+
+
+#undef _JE_
+#undef _JNE_
+#undef _JGE_
+#undef _JLE_
+#undef _JL_
+#undef _JG_
