@@ -1,0 +1,1 @@
+asm_st->size_arr
