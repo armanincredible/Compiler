@@ -27,7 +27,7 @@ int main ()
     free (buffer);
     free (line);
 
-    printf ("AAA");
+    printf ("End");
 
     return 0;
 }

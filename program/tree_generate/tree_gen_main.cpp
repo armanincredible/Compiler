@@ -46,7 +46,7 @@ int main ()
     }
     fclose (code_input);
 
-    printf ("AAA");
+    printf ("End");
     return 0;
 }
 
