@@ -19,11 +19,11 @@ int main ()
     char* buffer = 0;
     Onegin* line = make_tree_from_library (tree_node, &buffer);
     
-    make_tree_asm (tree_node);
+    make_from_tree_asm_bin (tree_node);
 
     tree_dtor (&(tree_node->left_ptr));
     tree_dtor (&(tree_node->right_ptr));
-    
+
     free (buffer);
     free (line);
 

@@ -185,7 +185,7 @@ int make_nodes_arr (node_st* nodes_st, char* str);
 
 Tree* get_general (node_st* nodes_st);
 
-int make_tree_asm (Tree* tree_node);
+int make_from_tree_asm_bin (Tree* tree_node);
 
 int make_code (Tree* tree_node);
 

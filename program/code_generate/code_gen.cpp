@@ -15,7 +15,7 @@
 
 
 static int make_asm (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
-static int make_asm_recurse (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
+static int make_asm_bin_recurse (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
 
 static int take_var_ptr (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
 
@@ -112,7 +112,7 @@ static int MakeEndBuffer (Asm_values* asm_st)
     return 0;
 }
 
-int make_tree_asm (Tree* tree_node)
+int make_from_tree_asm_bin (Tree* tree_node)
 {
     CHECK_ERROR_(tree_node, "NUL ADDRESS", -1);
 
@@ -178,7 +178,7 @@ int var_arr_dtor (Variables** var_arr)
             do{                                                     \
                 if (node != NULL)                                   \
                 {                                                   \
-                    make_asm_recurse (asm_st, node, var_arr);       \
+                    make_asm_bin_recurse (asm_st, node, var_arr);   \
                 }                                                   \
             }while(0)
 
@@ -402,7 +402,7 @@ static int make_asm (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
     _MOV_RBP_RSP_
     _SUB_RSP_ARG_(save_am_var * SIZEOF_DATA)
     asm_st->cur_amount_var  = 0;
-    make_asm_recurse (asm_st, tree_node, var_arr);
+    make_asm_bin_recurse (asm_st, tree_node, var_arr);
     _MOV_RSP_RBP_
     _POP_RBP_
     _MOV_RAX_ARG_(1)
@@ -429,7 +429,7 @@ static int make_asm (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
     _PUSH_RPB_
     _MOV_RBP_RSP_
     _SUB_RSP_ARG_(save_am_var * SIZEOF_DATA)
-    make_asm_recurse (asm_st, tree_node, var_arr);
+    make_asm_bin_recurse (asm_st, tree_node, var_arr);
     _MOV_RSP_RBP_
     _POP_RBP_
     _MOV_RAX_ARG_(1)
@@ -537,240 +537,322 @@ static int PrintIntoVarArr (Asm_values* asm_st, Tree* tree_node, Variables* var_
     return 0;
 }
 
-static int make_asm_recurse (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
+static int ParsParameter (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
+static int ParsDefine    (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
+static int ParsCall      (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
+static int ParsArray     (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
+static int ParsPoshlu    (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
+static int ParsVturilas  (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
+static int ParsVlyapalas (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
+static int ParsEqual     (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
+static int ParsVar       (Asm_values* asm_st, Tree* tree_node, Variables* var_arr);
+
+static int ParsParameter (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
+{
+    FILE* file_output = asm_st->asm_output_file;
+
+    if (asm_st->need_push == 1)
+    {
+        RECURSE_(LEFT_NODE_);
+        RECURSE_(RIGHT_NODE_);
+
+        _PUSH_RAX_
+    }
+    else
+    {
+        RECURSE_(LEFT_NODE_);
+        _POP_RBX_
+    }
+
+    return 0;
+}
+static int ParsDefine (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
+{
+    FILE* file_output = asm_st->asm_output_file;
+
+    _JMP_
+    _MAKE_LABEL_("skip%s", LEFT_NODE_->left_ptr->value.data, LABEL_FROM);
+
+    _MAKE_LABEL_("%s", LEFT_NODE_->left_ptr->value.data, LABEL_IN);
+
+    Tree* node = LEFT_NODE_->right_ptr;
+    asm_st->am_var_func = 1;
+
+    while (node->left_ptr != NULL)
+    {
+        asm_st->am_var_func ++;
+        node = node->left_ptr;
+    }
+    int save_field = asm_st->cur_field;
+    asm_st->cur_field = asm_st->cur_am_var + asm_st->am_var_func;
+
+    node = LEFT_NODE_->right_ptr;
+
+    PrintIntoVarArr (asm_st, node, var_arr);
+    
+    asm_st->cur_amount_var  = IsDifTree (RIGHT_NODE_, asm_st);
+    _PUSH_RPB_
+    _MOV_RBP_RSP_
+    _SUB_RSP_ARG_(SIZEOF_DATA * asm_st->cur_amount_var );
+    asm_st->cur_amount_var  = 0;
+
+    asm_st->delta = 8;
+
+    RECURSE_(RIGHT_NODE_);
+    
+    asm_st->delta = 0;
+    memset (var_arr + asm_st->cur_field - asm_st->am_var_func, 0, sizeof (Variables) * asm_st->am_var_func);
+    asm_st->cur_field = save_field;
+
+    _MAKE_LABEL_("skip%s", LEFT_NODE_->left_ptr->value.data, LABEL_IN);
+
+    asm_st->am_var_func = 0;
+
+    return 0;
+}
+static int ParsCall (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
+{
+    FILE* file_output = asm_st->asm_output_file;
+
+    asm_st->need_push = 1;
+    _PUSH_RPB_
+    RECURSE_(RIGHT_NODE_->right_ptr);
+
+    _CALL_
+
+    unsigned int ptr_from = asm_st->ip + 4;
+    unsigned int delta = START_LIB_CODE - ptr_from;
+
+    if (STR_EQ_(RIGHT_NODE_->left_ptr->value.data, "printf", sizeof ("printf")))
+    {
+        *((unsigned int*)(asm_st->buffer + asm_st->ip)) = PRINTF_PTR + delta;
+        asm_st->ip = ptr_from;
+    }
+    else if (STR_EQ_(RIGHT_NODE_->left_ptr->value.data, "scanf", sizeof ("scanf")))
+    {
+        *((unsigned int*)(asm_st->buffer + asm_st->ip)) = SCANF_PTR + delta;
+        asm_st->ip = ptr_from;
+    }
+    else if (STR_EQ_(RIGHT_NODE_->left_ptr->value.data, "sqrt", sizeof ("sqrt")))
+    {
+        *((unsigned int*)(asm_st->buffer + asm_st->ip)) = SQRT_PTR + delta;
+        asm_st->ip = ptr_from;
+    }
+    else
+    {
+        _MAKE_LABEL_("%s", RIGHT_NODE_->left_ptr->value.data, LABEL_FROM);
+    }
+    
+    
+    asm_st->need_push = 0;
+    RECURSE_(RIGHT_NODE_->right_ptr);
+    _POP_RBP_
+
+    return 0;
+}
+static int ParsArray (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
+{
+    FILE* file_output = asm_st->asm_output_file;
+    _XOR_RAX_RAX_
+
+    RECURSE_(RIGHT_NODE_);
+    _LEA_RAX_RAX_8_
+
+    int var_ptr = TAKE_VAR_(LEFT_NODE_) * 8 + 8;
+
+    _ADD_RAX_ARG_(var_ptr)
+    _MOV_RCX_RBP_
+    _SUB_RCX_RAX_
+    _MOV_RAX_MEMRCX_
+
+    return 0;
+}
+static int ParsPoshlu (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
+{
+    FILE* file_output = asm_st->asm_output_file;
+    RECURSE_(RIGHT_NODE_);
+
+    _MOV_RSP_RBP_
+    _POP_RBP_
+    _RET_
+
+    return 0;
+}
+static int ParsVturilas (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
+{
+    FILE* file_output = asm_st->asm_output_file;
+    
+    asm_st->cur_am_if = asm_st->cur_am_if + 1;
+    int cur_if = asm_st->cur_am_if;
+
+    RECURSE_(RIGHT_NODE_->left_ptr);
+    _MOV_RCX_RAX_
+
+    RECURSE_(RIGHT_NODE_->right_ptr);
+    _CMP_RCX_RAX_
+
+
+    check_stat (asm_st, RIGHT_NODE_); ///print !if
+
+    if (LEFT_NODE_->left_ptr == NULL)
+    {
+        _MAKE_LABEL_("skipall%d", cur_if, LABEL_FROM);
+
+        RECURSE_(LEFT_NODE_->right_ptr);
+    }
+    else
+    {
+        _MAKE_LABEL_("else%d", cur_if, LABEL_FROM);
+
+        RECURSE_(LEFT_NODE_->right_ptr);
+
+        _JMP_
+        _MAKE_LABEL_("skipall%d", cur_if, LABEL_FROM);
+        _MAKE_LABEL_("else%d", cur_if, LABEL_IN);
+        RECURSE_(LEFT_NODE_->left_ptr);
+    }
+
+    _MAKE_LABEL_("skipall%d", cur_if, LABEL_IN);
+
+    return 0;
+}
+static int ParsVlyapalas (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
+{
+    FILE* file_output = asm_st->asm_output_file;
+
+    asm_st->cur_am_if = asm_st->cur_am_if + 1;
+    int am_if = asm_st->cur_am_if;
+
+    _MAKE_LABEL_("while_if%d", am_if, LABEL_IN);
+    RECURSE_(RIGHT_NODE_->left_ptr);
+
+    _MOV_RCX_RAX_
+    RECURSE_(RIGHT_NODE_->right_ptr);
+
+    _CMP_RCX_RAX_
+
+    check_stat (asm_st, RIGHT_NODE_);
+    _MAKE_LABEL_("skipall%d", am_if, LABEL_FROM);
+
+    RECURSE_(LEFT_NODE_);
+    
+
+    _JMP_
+    _MAKE_LABEL_("while_if%d", am_if, LABEL_FROM);
+
+    _MAKE_LABEL_("skipall%d", am_if, LABEL_IN);
+
+    return 0;
+}
+static int ParsEqual (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
+{
+    FILE* file_output = asm_st->asm_output_file;
+
+    _PUSH_RAX_
+    _XOR_RAX_RAX_
+
+    if (*ARG_LEFT_NODE_ == '#')
+    {
+        int var_ptr = TAKE_VAR_(LEFT_NODE_) * 8;
+        RECURSE_(RIGHT_NODE_);
+
+        if (var_ptr < 0)
+        {
+            var_ptr = -var_ptr + asm_st->delta;
+            _MOV_MEMRBPPLUS_RAX_(var_ptr);
+        }
+        else
+        {
+            var_ptr = var_ptr + 8;
+            _MOV_MEMRBPMINUS_RAX_(var_ptr);
+        }
+    }
+    else
+    {
+        RECURSE_(RIGHT_NODE_);
+        _MOV_RDX_RAX_
+
+        RECURSE_(LEFT_NODE_->right_ptr);
+        _LEA_RAX_RAX_8_
+        _MOV_RCX_RBP_
+
+        int var_ptr = TAKE_VAR_(LEFT_NODE_->left_ptr) * 8;
+        _ADD_RAX_ARG_(var_ptr + 8)
+        _SUB_RCX_RAX_
+
+        _MOV_MEMRCX_RDX_
+    }
+
+    _POP_RAX_
+
+    return 0;
+}
+static int ParsVar (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
+{
+    FILE* file_output = asm_st->asm_output_file;
+
+    int var_ptr = TAKE_VAR_(tree_node) * 8;
+    if (var_ptr < 0)
+    {
+        var_ptr = -var_ptr + asm_st->delta;
+        _MOV_RAX_MEMRBPPLUS_(var_ptr);
+    }
+    else
+    {
+        var_ptr = var_ptr + 8;
+        _MOV_RAX_MEMRBPMINUS_(var_ptr);
+    }
+    return 0;
+}
+static int make_asm_bin_recurse (Asm_values* asm_st, Tree* tree_node, Variables* var_arr)
 {
     FILE* file_output = asm_st->asm_output_file;
 
     if (STR_EQ_NODE_(PARAMETER))
     {
-        if (asm_st->need_push == 1)
-        {
-            RECURSE_(LEFT_NODE_);
-            RECURSE_(RIGHT_NODE_);
-
-            _PUSH_RAX_
-        }
-        else
-        {
-            RECURSE_(LEFT_NODE_);
-            _POP_RBX_
-        }
-
+        ParsParameter(asm_st, tree_node, var_arr);
         return 0;
     }
 
     if (STR_EQ_NODE_(DEFINE))
     {
-        _JMP_
-        _MAKE_LABEL_("skip%s", LEFT_NODE_->left_ptr->value.data, LABEL_FROM);
-
-        _MAKE_LABEL_("%s", LEFT_NODE_->left_ptr->value.data, LABEL_IN);
-
-        Tree* node = LEFT_NODE_->right_ptr;
-        asm_st->am_var_func = 1;
-
-        while (node->left_ptr != NULL)
-        {
-            asm_st->am_var_func ++;
-            node = node->left_ptr;
-        }
-        int save_field = asm_st->cur_field;
-        asm_st->cur_field = asm_st->cur_am_var + asm_st->am_var_func;
-
-        node = LEFT_NODE_->right_ptr;
-
-        PrintIntoVarArr (asm_st, node, var_arr);
-        
-        asm_st->cur_amount_var  = IsDifTree (RIGHT_NODE_, asm_st);
-        _PUSH_RPB_
-        _MOV_RBP_RSP_
-        _SUB_RSP_ARG_(SIZEOF_DATA * asm_st->cur_amount_var );
-        asm_st->cur_amount_var  = 0;
-
-        asm_st->delta = 8;
-
-        RECURSE_(RIGHT_NODE_);
-        
-        asm_st->delta = 0;
-        memset (var_arr + asm_st->cur_field - asm_st->am_var_func, 0, sizeof (Variables) * asm_st->am_var_func);
-        asm_st->cur_field = save_field;
-
-        _MAKE_LABEL_("skip%s", LEFT_NODE_->left_ptr->value.data, LABEL_IN);
-
-        asm_st->am_var_func = 0;
+        ParsDefine (asm_st, tree_node, var_arr);
         return 0;
     }
 
     if (STR_EQ_NODE_(CALL))
     {
-        asm_st->need_push = 1;
-        _PUSH_RPB_
-        RECURSE_(RIGHT_NODE_->right_ptr);
-
-        _CALL_
-
-        unsigned int ptr_from = asm_st->ip + 4;
-        unsigned int delta = START_LIB_CODE - ptr_from;
-
-        if (STR_EQ_(RIGHT_NODE_->left_ptr->value.data, "printf", sizeof ("printf")))
-        {
-            *((unsigned int*)(asm_st->buffer + asm_st->ip)) = PRINTF_PTR + delta;
-            asm_st->ip = ptr_from;
-        }
-        else if (STR_EQ_(RIGHT_NODE_->left_ptr->value.data, "scanf", sizeof ("scanf")))
-        {
-            *((unsigned int*)(asm_st->buffer + asm_st->ip)) = SCANF_PTR + delta;
-            asm_st->ip = ptr_from;
-        }
-        else if (STR_EQ_(RIGHT_NODE_->left_ptr->value.data, "sqrt", sizeof ("sqrt")))
-        {
-            *((unsigned int*)(asm_st->buffer + asm_st->ip)) = SQRT_PTR + delta;
-            asm_st->ip = ptr_from;
-        }
-        else
-        {
-            _MAKE_LABEL_("%s", RIGHT_NODE_->left_ptr->value.data, LABEL_FROM);
-        }
-        
-        
-        asm_st->need_push = 0;
-        RECURSE_(RIGHT_NODE_->right_ptr);
-        _POP_RBP_
-
+        ParsCall (asm_st, tree_node, var_arr);
         return 0;
     }
 
     if (STR_EQ_NODE_(ARRAY))
     {
-        _XOR_RAX_RAX_
-
-        RECURSE_(RIGHT_NODE_);
-        _LEA_RAX_RAX_8_
-
-        int var_ptr = TAKE_VAR_(LEFT_NODE_) * 8 + 8;
-
-        _ADD_RAX_ARG_(var_ptr)
-        _MOV_RCX_RBP_
-        _SUB_RCX_RAX_
-        _MOV_RAX_MEMRCX_
-
+        ParsArray (asm_st, tree_node, var_arr);
         return 0;
-
     }
 
     if (STR_EQ_NODE_(POSHLU))
     {
-        RECURSE_(RIGHT_NODE_);
-
-        _MOV_RSP_RBP_
-        _POP_RBP_
-        _RET_
-
+        ParsPoshlu (asm_st, tree_node, var_arr);
         return 0;
     }
 
     if (STR_EQ_NODE_(VTURILAS))
     {
-        asm_st->cur_am_if = asm_st->cur_am_if + 1;
-        int cur_if = asm_st->cur_am_if;
-
-        RECURSE_(RIGHT_NODE_->left_ptr);
-        _MOV_RCX_RAX_
-
-        RECURSE_(RIGHT_NODE_->right_ptr);
-        _CMP_RCX_RAX_
-
-
-        check_stat (asm_st, RIGHT_NODE_); ///print !if
-
-        if (LEFT_NODE_->left_ptr == NULL)
-        {
-            _MAKE_LABEL_("skipall%d", cur_if, LABEL_FROM);
-
-            RECURSE_(LEFT_NODE_->right_ptr);
-        }
-        else
-        {
-            _MAKE_LABEL_("else%d", cur_if, LABEL_FROM);
-
-            RECURSE_(LEFT_NODE_->right_ptr);
-
-            _JMP_
-            _MAKE_LABEL_("skipall%d", cur_if, LABEL_FROM);
-            _MAKE_LABEL_("else%d", cur_if, LABEL_IN);
-            RECURSE_(LEFT_NODE_->left_ptr);
-        }
-
-        _MAKE_LABEL_("skipall%d", cur_if, LABEL_IN);
-
+        ParsVturilas (asm_st, tree_node, var_arr);
         return 0;
     }
 
     if (STR_EQ_NODE_(VLYAPALAS))
     {
-        asm_st->cur_am_if = asm_st->cur_am_if + 1;
-        int am_if = asm_st->cur_am_if;
-
-        _MAKE_LABEL_("while_if%d", am_if, LABEL_IN);
-        RECURSE_(RIGHT_NODE_->left_ptr);
-
-        _MOV_RCX_RAX_
-        RECURSE_(RIGHT_NODE_->right_ptr);
-
-        _CMP_RCX_RAX_
-
-        check_stat (asm_st, RIGHT_NODE_);
-        _MAKE_LABEL_("skipall%d", am_if, LABEL_FROM);
-
-        RECURSE_(LEFT_NODE_);
-        
-
-        _JMP_
-        _MAKE_LABEL_("while_if%d", am_if, LABEL_FROM);
-
-        _MAKE_LABEL_("skipall%d", am_if, LABEL_IN);
+        ParsVlyapalas (asm_st, tree_node, var_arr);
         return 0;
     }
 
     if ((*ARG_NODE_ == '=') && (SIZE_ARG_NODE_ == 1))
     {
-        _PUSH_RAX_
-        _XOR_RAX_RAX_
-
-        if (*ARG_LEFT_NODE_ == '#')
-        {
-            int var_ptr = TAKE_VAR_(LEFT_NODE_) * 8;
-            RECURSE_(RIGHT_NODE_);
-
-            if (var_ptr < 0)
-            {
-                var_ptr = -var_ptr + asm_st->delta;
-                _MOV_MEMRBPPLUS_RAX_(var_ptr);
-            }
-            else
-            {
-                var_ptr = var_ptr + 8;
-                _MOV_MEMRBPMINUS_RAX_(var_ptr);
-            }
-        }
-        else
-        {
-            RECURSE_(RIGHT_NODE_);
-            _MOV_RDX_RAX_
-
-            RECURSE_(LEFT_NODE_->right_ptr);
-            _LEA_RAX_RAX_8_
-            _MOV_RCX_RBP_
-
-            int var_ptr = TAKE_VAR_(LEFT_NODE_->left_ptr) * 8;
-            _ADD_RAX_ARG_(var_ptr + 8)
-            _SUB_RCX_RAX_
-
-            _MOV_MEMRCX_RDX_
-        }
-
-        _POP_RAX_
-
+        ParsEqual (asm_st, tree_node, var_arr);
         return 0;
     }
 
@@ -786,17 +868,7 @@ static int make_asm_recurse (Asm_values* asm_st, Tree* tree_node, Variables* var
 
     if (*ARG_NODE_ == '#')
     {
-        int var_ptr = TAKE_VAR_(tree_node) * 8;
-        if (var_ptr < 0)
-        {
-            var_ptr = -var_ptr + asm_st->delta;
-            _MOV_RAX_MEMRBPPLUS_(var_ptr);
-        }
-        else
-        {
-            var_ptr = var_ptr + 8;
-            _MOV_RAX_MEMRBPMINUS_(var_ptr);
-        }
+        ParsVar (asm_st, tree_node, var_arr);
         return 0;
     }
 
