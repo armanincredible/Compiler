@@ -4,14 +4,14 @@ Hello. This is compiler. Recently a programming [language](https://github.com/ar
 The last project in @ded32 "Computer Architecture" course held in MIPT
 ## How to run program
 !You need to have your code in input folder code.txt!   <br/> 
-Just run program in folders tree generate and code generate. Then your executable file will be in output.
+Just run program in folders tree generate and code generate. Then your executable file will be in output folder.
 ## Example
 ```
   #x = 4;
   #y = 8;
   #z = #x * #y;
 ```
-This code in assembler (nasm) file will look like this:
+This code in assembler (nasm) file (what you can find in output folder) will look like this:
 ```
   push rbp
   mov rbp, rsp
@@ -41,6 +41,10 @@ This code in assembler (nasm) file will look like this:
   mov rsp, rbp
   pop rbp
 ```
+Execute file has three functions:
++ printf
++ scanf
++ sqrt
 ## Language
 I don't think it would be superfluous to know my language. This so easily, because it's similar to c language.
 + if     <=> VTURILAS
